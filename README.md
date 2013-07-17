@@ -6,7 +6,8 @@ in lecture 1 of the winter quarter 2013
 
 -----------------------------------------------
 The Big Ideas in CS 106B
-........................
+
+
 Recursion.
   Recursion is an enormously powerful technique that enables you to solve
   complex problems that you would never be able to solve without it. 
@@ -34,6 +35,7 @@ ClassX platform from spring 2011
 
 -----------------------------------------------
 The links of the materials :-
-..............................
+
+
 1- ClassX video Lectures http://goo.gl/1u080
 2- Winter 2013 archive http://goo.gl/9msfh
