@@ -1,0 +1,29 @@
+/*
+ * File: ConsecutiveHeads.cpp
+ * --------------------------
+ * Name: [TODO: enter name here]
+ * Section: [TODO: enter section leader here]
+ * This file is the starter project for the coin-flipping problem.
+ * [TODO: rewrite the documentation]
+ */
+
+#include <iostream>
+#include <string>
+#include "console.h"
+#include "random.h"
+using namespace std;
+
+int main() {
+	int consHeads = 0;
+	int  flipNums = 0;
+    	string flipResult;
+	while(consHeads != 3){
+		flipResult = randomChance(0.5) ? "heads" : "tails";
+		cout << flipResult << endl;
+		flipNums++;
+		if(flipResult == "heads")consHeads += 1;
+		else consHeads = 0;
+	}
+	cout << "it take " << flipNums << " to get 3 consecutive heads." << endl;
+	return 0;
+}
