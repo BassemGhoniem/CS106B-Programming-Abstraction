@@ -30,15 +30,15 @@ const int TEXT_LENGTH = 2000;
 
 int main() {
 	Map<string, Vector<char> > seeds;
-	  
+  
 	ifstream stream;	
 	promptUserForFile(stream, "Please enter file name: ");
 	
-	int order = getModelOrder();
+  int order = getModelOrder();
 
 	readSeeds(seeds, order, stream);
 	string initialSeed = findInitSeed(seeds);
-	randomWriter(seeds, initialSeed, order);
+  randomWriter(seeds, initialSeed, order);
 
 	return 0;
 }
@@ -50,7 +50,7 @@ int main() {
  */
 
 int getModelOrder(){
-	int order;
+  int order;
 	while(true) {
 		order = getInteger("Model Order :");
 		if (order > 1 && order < 11) return order;
@@ -65,27 +65,27 @@ int getModelOrder(){
  */
 
 void readSeeds(Map<string, Vector<char> >& seeds,int order, istream& file){
-	string seed;
-	char ch;
+  string seed;
+  char ch;
 
-	// forming the first seed with length equals to model order 
-	for(int i = 0; i < order; i++){
-		if(file.get(ch)) seed += ch;
-	}
-
-	//extract the seeds from the file each seed differs by one char from 
-	//the previous one, and keeping track for following character.
-	while(file.get(ch)){
-		if (seeds.containsKey(seed)) {
-			seeds[seed].add(ch);
-		} else {
-			seeds[seed];
-			seeds[seed].add(ch);
-		}
-		file.unget();
-		seed = seed.substr(1);
-		if(file.get(ch)) seed += ch;
-	}
+  // forming the first seed with length equals to model order 
+  for(int i = 0; i < order; i++){
+    if(file.get(ch)) seed += ch;
+  }
+  
+  //extract the seeds from the file each seed differs by one char from 
+  //the previous one, and keeping track for following character.
+  while(file.get(ch)){
+    if (seeds.containsKey(seed)) {
+      seeds[seed].add(ch);
+    } else {
+      seeds[seed];
+      seeds[seed].add(ch);
+    }
+    file.unget();
+    seed = seed.substr(1);
+    if(file.get(ch)) seed += ch;
+  }
 }
 
 /*
@@ -119,15 +119,15 @@ string findInitSeed(Map<string, Vector<char> >& seeds){
  */
 
 void randomWriter(Map<string, Vector<char> >& seeds, string seed, int order){
-	char ch;
-	int size  = seeds[seed].size();
-	int index;
+  char ch;
+  int size  = seeds[seed].size();
+  int index;
 
-	for(int i = 0; i < TEXT_LENGTH - order; i++){
-		index = randomInteger(0, size - 1);
-		ch = seeds[seed].get(index);
-		cout << ch ;
-		seed  = seed.substr(1) + ch;
-		size  = seeds[seed].size();
-	}
+  for(int i = 0; i < TEXT_LENGTH - order; i++){
+    index = randomInteger(0, size - 1);
+    ch = seeds[seed].get(index);
+    cout << ch ;
+    seed  = seed.substr(1) + ch;
+    size  = seeds[seed].size();
+  }
 }
