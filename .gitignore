@@ -33,3 +33,6 @@
 
 build*/
 *.pro.user
+
+# lib
+Assignment*/lib
