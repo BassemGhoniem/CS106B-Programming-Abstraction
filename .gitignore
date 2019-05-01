@@ -36,3 +36,8 @@ build*/
 
 # lib
 Assignment*/lib
+
+# IDE
+*.vscode/
+*.idea/
+
